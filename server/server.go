@@ -5,8 +5,9 @@ import (
 	"sync"
 
 	"github.com/gofrs/uuid"
-	"google.golang.org/grpc/status"
 	"google.golang.org/grpc/codes"
+	"google.golang.org/grpc/status"
+	"google.golang.org/protobuf/types/known/timestamppb"
 
 	pbExample "github.com/johanbrandhorst/grpc-gateway-boilerplate/proto"
 )
@@ -30,8 +31,10 @@ func (b *Backend) AddUser(ctx context.Context, req *pbExample.AddUserRequest) (*
 	defer b.mu.Unlock()
 
 	user := &pbExample.User{
-		Id: uuid.Must(uuid.NewV4()).String(),
-		Email: req.GetEmail(),
+		Id:         uuid.Must(uuid.NewV4()).String(),
+		Email:      req.GetEmail(),
+		CreateTime: timestamppb.Now(),
+		Metadata:   req.GetMetadata(),
 	}
 	b.users = append(b.users, user)
 
