@@ -18,6 +18,7 @@ import (
 
 	"github.com/johanbrandhorst/grpc-gateway-boilerplate/insecure"
 	pbExample "github.com/johanbrandhorst/grpc-gateway-boilerplate/proto"
+	"github.com/johanbrandhorst/grpc-gateway-boilerplate/server"
 	"github.com/johanbrandhorst/grpc-gateway-boilerplate/third_party"
 )
 
@@ -51,7 +52,9 @@ func Run(dialAddr string) error {
 		return fmt.Errorf("failed to dial server: %w", err)
 	}
 
-	gwmux := runtime.NewServeMux()
+	gwmux := runtime.NewServeMux(
+		runtime.WithErrorHandler(server.CustomErrorHandler),
+	)
 	err = pbExample.RegisterUserServiceHandler(context.Background(), gwmux, conn)
 	if err != nil {
 		return fmt.Errorf("failed to register gateway: %w", err)
