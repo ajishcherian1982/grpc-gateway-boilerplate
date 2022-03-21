@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"io/ioutil"
 	"net"
 	"os"
@@ -9,10 +10,13 @@ import (
 	"google.golang.org/grpc/credentials"
 	"google.golang.org/grpc/grpclog"
 
+	"github.com/ajishcherian1982/grpc-gateway-boilerplate/db"
 	"github.com/ajishcherian1982/grpc-gateway-boilerplate/gateway"
+	"github.com/ajishcherian1982/grpc-gateway-boilerplate/handler"
 	"github.com/ajishcherian1982/grpc-gateway-boilerplate/insecure"
 	pbExample "github.com/ajishcherian1982/grpc-gateway-boilerplate/proto"
 	"github.com/ajishcherian1982/grpc-gateway-boilerplate/server"
+	"github.com/ajishcherian1982/grpc-gateway-boilerplate/store"
 )
 
 func main() {
@@ -31,6 +35,16 @@ func main() {
 		grpc.Creds(credentials.NewServerTLSFromCert(&insecure.Cert)),
 	)
 	pbExample.RegisterUserServiceServer(s, server.New())
+
+	d, err := db.New()
+	if err != nil {
+		err = fmt.Errorf("failed to connect database: %w", err)
+		log.Fatalln("Failed to connect to database:", err)
+	}
+	us := store.NewUserStore(d)
+	as := store.NewArticleStore(d)
+	h := handler.New(&l, us, as)
+	pbExample.RegisterUsersServer(s)
 
 	// Serve gRPC Server
 	log.Info("Serving gRPC on https://", addr)
