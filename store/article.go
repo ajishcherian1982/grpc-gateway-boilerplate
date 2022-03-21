@@ -1,8 +1,8 @@
 package store
 
 import (
+	"github.com/ajishcherian1982/grpc-gateway-boilerplate/model"
 	"github.com/jinzhu/gorm"
-	"github.com/raahii/golang-grpc-realworld-example/model"
 )
 
 // ArticleStore is data access struct for user

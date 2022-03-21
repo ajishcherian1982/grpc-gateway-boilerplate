@@ -3,9 +3,9 @@ package model
 import (
 	"fmt"
 
+	pb "github.com/ajishcherian1982/grpc-gateway-boilerplate/proto"
 	validation "github.com/go-ozzo/ozzo-validation"
 	"github.com/jinzhu/gorm"
-	pb "github.com/raahii/golang-grpc-realworld-example/proto"
 )
 
 // Comment model
