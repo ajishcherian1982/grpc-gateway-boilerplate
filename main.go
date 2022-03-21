@@ -9,10 +9,10 @@ import (
 	"google.golang.org/grpc/credentials"
 	"google.golang.org/grpc/grpclog"
 
-	"github.com/johanbrandhorst/grpc-gateway-boilerplate/gateway"
-	"github.com/johanbrandhorst/grpc-gateway-boilerplate/insecure"
-	pbExample "github.com/johanbrandhorst/grpc-gateway-boilerplate/proto"
-	"github.com/johanbrandhorst/grpc-gateway-boilerplate/server"
+	"github.com/ajishcherian1982/grpc-gateway-boilerplate/gateway"
+	"github.com/ajishcherian1982/grpc-gateway-boilerplate/insecure"
+	pbExample "github.com/ajishcherian1982/grpc-gateway-boilerplate/proto"
+	"github.com/ajishcherian1982/grpc-gateway-boilerplate/server"
 )
 
 func main() {

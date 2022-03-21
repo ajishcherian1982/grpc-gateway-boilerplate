@@ -6,7 +6,7 @@ import (
 
 	"github.com/gofrs/uuid"
 
-	pbExample "github.com/johanbrandhorst/grpc-gateway-boilerplate/proto"
+	pbExample "github.com/ajishcherian1982/grpc-gateway-boilerplate/proto"
 )
 
 // Backend implements the protobuf interface
