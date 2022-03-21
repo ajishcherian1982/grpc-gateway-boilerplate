@@ -5,9 +5,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/raahii/golang-grpc-realworld-example/auth"
-	"github.com/raahii/golang-grpc-realworld-example/model"
-	pb "github.com/raahii/golang-grpc-realworld-example/proto"
+	"github.com/ajishcherian1982/grpc-gateway-boilerplate/auth"
+	"github.com/ajishcherian1982/grpc-gateway-boilerplate/model"
+	pb "github.com/ajishcherian1982/grpc-gateway-boilerplate/proto"
 	"github.com/stretchr/testify/assert"
 )
 

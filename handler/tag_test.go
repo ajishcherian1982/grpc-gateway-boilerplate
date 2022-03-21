@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"testing"
 
+	"github.com/ajishcherian1982/grpc-gateway-boilerplate/model"
+	pb "github.com/ajishcherian1982/grpc-gateway-boilerplate/proto"
 	"github.com/google/uuid"
-	"github.com/raahii/golang-grpc-realworld-example/model"
-	pb "github.com/raahii/golang-grpc-realworld-example/proto"
 	"github.com/stretchr/testify/assert"
 )
 

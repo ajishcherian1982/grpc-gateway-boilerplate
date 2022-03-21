@@ -3,7 +3,7 @@ package handler
 import (
 	"context"
 
-	pb "github.com/raahii/golang-grpc-realworld-example/proto"
+	pb "github.com/ajishcherian1982/grpc-gateway-boilerplate/proto"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )

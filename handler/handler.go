@@ -1,7 +1,7 @@
 package handler
 
 import (
-	"github.com/raahii/golang-grpc-realworld-example/store"
+	"github.com/ajishcherian1982/grpc-gateway-boilerplate/store"
 	"github.com/rs/zerolog"
 )
 

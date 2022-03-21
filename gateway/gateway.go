@@ -56,6 +56,17 @@ func Run(dialAddr string) error {
 	if err != nil {
 		return fmt.Errorf("failed to register gateway: %w", err)
 	}
+	// users
+	err := pbExample.RegisterUsersHandlerFromEndpoint(ctx, mux, *echoEndpoint, opts)
+	if err != nil {
+		return err
+	}
+
+	// ariticles
+	err = pbExample.RegisterArticlesHandlerFromEndpoint(ctx, mux, *echoEndpoint, opts)
+	if err != nil {
+		return err
+	}
 
 	oa := getOpenAPIHandler()
 

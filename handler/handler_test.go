@@ -6,10 +6,10 @@ import (
 	"io/ioutil"
 	"testing"
 
+	"github.com/ajishcherian1982/grpc-gateway-boilerplate/db"
+	"github.com/ajishcherian1982/grpc-gateway-boilerplate/store"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/grpc-ecosystem/go-grpc-middleware/util/metautils"
-	"github.com/raahii/golang-grpc-realworld-example/db"
-	"github.com/raahii/golang-grpc-realworld-example/store"
 	"github.com/rs/zerolog"
 	"google.golang.org/grpc/metadata"
 )

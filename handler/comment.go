@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"strconv"
 
-	"github.com/raahii/golang-grpc-realworld-example/auth"
-	"github.com/raahii/golang-grpc-realworld-example/model"
-	pb "github.com/raahii/golang-grpc-realworld-example/proto"
+	"github.com/ajishcherian1982/grpc-gateway-boilerplate/auth"
+	"github.com/ajishcherian1982/grpc-gateway-boilerplate/model"
+	pb "github.com/ajishcherian1982/grpc-gateway-boilerplate/proto"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )
