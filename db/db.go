@@ -25,7 +25,7 @@ func dsn() (string, error) {
 	host := os.Getenv("DB_HOST")
 	if host == "" {
 		//return "", errors.New("$DB_HOST is not set")
-		host = "grpcdbdev.cbow2w09thmy.us-east-1.rds.amazonaws.com"
+		host = "xxxx"
 	}
 
 	user := os.Getenv("DB_USER")
@@ -37,7 +37,7 @@ func dsn() (string, error) {
 	password := os.Getenv("DB_PASSWORD")
 	if password == "" {
 		//return "", errors.New("$DB_PASSWORD is not set")
-		password = "grpcdbdev123"
+		password = "xxxx"
 	}
 
 	name := os.Getenv("DB_NAME")
