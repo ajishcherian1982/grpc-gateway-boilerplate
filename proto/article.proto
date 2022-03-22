@@ -33,66 +33,66 @@ message Comment {
 service Articles {
   rpc CreateArticle (CreateAritcleRequest) returns (ArticleResponse) {
     option (google.api.http) = {
-      post: "/articles"
+      post: "/api/v1/articles"
       body: "*"
     };
   }
   rpc GetFeedArticles (GetFeedArticlesRequest) returns (ArticlesResponse) {
     option (google.api.http) = {
-      get: "/articles/feed"
+      get: "/api/v1/articles/feed"
     };
   }
   rpc GetArticle (GetArticleRequest) returns (ArticleResponse) {
     option (google.api.http) = {
-      get: "/articles/{slug}"
+      get: "/api/v1/articles/{slug}"
     };
   }
   rpc GetArticles (GetArticlesRequest) returns (ArticlesResponse) {
     option (google.api.http) = {
-      get: "/articles"
+      get: "/api/v1/articles"
     };
   }
   rpc UpdateArticle (UpdateArticleRequest) returns (ArticleResponse) {
     option (google.api.http) = {
-      put: "/articles/{article.slug}"
+      put: "/api/v1/articles/{article.slug}"
       body: "*"
     };
   }
   rpc DeleteArticle (DeleteArticleRequest) returns (empty.Empty) {
     option (google.api.http) = {
-      delete: "/articles/{slug}"
+      delete: "/api/v1/articles/{slug}"
     };
   }
   rpc FavoriteArticle (FavoriteArticleRequest) returns (ArticleResponse) {
     option (google.api.http) = {
-      post: "/articles/{slug}/favorite"
+      post: "/api/v1/articles/{slug}/favorite"
       body: "*"
     };
   }
   rpc UnfavoriteArticle (UnfavoriteArticleRequest) returns (ArticleResponse) {
     option (google.api.http) = {
-      delete: "/articles/{slug}/favorite"
+      delete: "/api/v1/articles/{slug}/favorite"
     };
   }
   rpc GetTags (empty.Empty) returns (TagsResponse) {
     option (google.api.http) = {
-      get: "/tags"
+      get: "/api/v1/tags"
     };
   }
   rpc CreateComment (CreateCommentRequest) returns (CommentResponse) {
     option (google.api.http) = {
-      post: "/articles/{slug}/comments"
+      post: "/api/v1/articles/{slug}/comments"
       body: "*"
     };
   }
   rpc GetComments (GetCommentsRequest) returns (CommentsResponse) {
     option (google.api.http) = {
-      get: "/articles/{slug}/comments"
+      get: "/api/v1/articles/{slug}/comments"
     };
   }
   rpc DeleteComment (DeleteCommentRequest) returns (empty.Empty) {
     option (google.api.http) = {
-      get: "/articles/{slug}/comments/{id}"
+      get: "/api/v1/articles/{slug}/comments/{id}"
     };
   }
 }

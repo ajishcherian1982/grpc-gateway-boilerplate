@@ -117,7 +117,7 @@ func (h *Handler) CurrentUser(ctx context.Context, req *pb.Empty) (*pb.UserRespo
 // UpdateUser updates current user
 func (h *Handler) UpdateUser(ctx context.Context, req *pb.UpdateUserRequest) (*pb.UserResponse, error) {
 	h.logger.Info().Msg("update user request")
-
+	h.logger.Info().Interface("req", ctx).Msg("login user")
 	userID, err := auth.GetUserID(ctx)
 	if err != nil {
 		msg := "unauthenticated"

@@ -16,7 +16,7 @@
     "application/json"
   ],
   "paths": {
-    "/profiles/{username}": {
+    "/api/v1/profiles/{username}": {
       "get": {
         "operationId": "Users_ShowProfile",
         "responses": {
@@ -46,7 +46,7 @@
         ]
       }
     },
-    "/profiles/{username}/follow": {
+    "/api/v1/profiles/{username}/follow": {
       "delete": {
         "operationId": "Users_UnfollowUser",
         "responses": {
@@ -74,45 +74,9 @@
         "tags": [
           "Users"
         ]
-      },
-      "post": {
-        "operationId": "Users_FollowUser",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/userProfileResponse"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "username",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "type": "object"
-            }
-          }
-        ],
-        "tags": [
-          "Users"
-        ]
       }
     },
-    "/user": {
+    "/api/v1/user": {
       "get": {
         "operationId": "Users_CurrentUser",
         "responses": {
@@ -164,7 +128,7 @@
         ]
       }
     },
-    "/users": {
+    "/api/v1/users": {
       "post": {
         "operationId": "Users_CreateUser",
         "responses": {
@@ -196,7 +160,7 @@
         ]
       }
     },
-    "/users/login": {
+    "/api/v1/users/login": {
       "post": {
         "operationId": "Users_LoginUser",
         "responses": {
@@ -220,6 +184,44 @@
             "required": true,
             "schema": {
               "$ref": "#/definitions/userLoginUserRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Users"
+        ]
+      }
+    },
+    "/api/v2/profiles/{username}/follow": {
+      "post": {
+        "operationId": "Users_FollowUser",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/userProfileResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "username",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object"
             }
           }
         ],

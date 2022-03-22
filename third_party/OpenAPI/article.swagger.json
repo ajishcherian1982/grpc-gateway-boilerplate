@@ -16,7 +16,7 @@
     "application/json"
   ],
   "paths": {
-    "/articles": {
+    "/api/v1/articles": {
       "get": {
         "operationId": "Articles_GetArticles",
         "responses": {
@@ -102,7 +102,7 @@
         ]
       }
     },
-    "/articles/feed": {
+    "/api/v1/articles/feed": {
       "get": {
         "operationId": "Articles_GetFeedArticles",
         "responses": {
@@ -140,7 +140,7 @@
         ]
       }
     },
-    "/articles/{article.slug}": {
+    "/api/v1/articles/{article.slug}": {
       "put": {
         "operationId": "Articles_UpdateArticle",
         "responses": {
@@ -178,7 +178,7 @@
         ]
       }
     },
-    "/articles/{slug}": {
+    "/api/v1/articles/{slug}": {
       "get": {
         "operationId": "Articles_GetArticle",
         "responses": {
@@ -236,7 +236,7 @@
         ]
       }
     },
-    "/articles/{slug}/comments": {
+    "/api/v1/articles/{slug}/comments": {
       "get": {
         "operationId": "Articles_GetComments",
         "responses": {
@@ -307,7 +307,7 @@
         ]
       }
     },
-    "/articles/{slug}/comments/{id}": {
+    "/api/v1/articles/{slug}/comments/{id}": {
       "get": {
         "operationId": "Articles_DeleteComment",
         "responses": {
@@ -343,7 +343,7 @@
         ]
       }
     },
-    "/articles/{slug}/favorite": {
+    "/api/v1/articles/{slug}/favorite": {
       "delete": {
         "operationId": "Articles_UnfavoriteArticle",
         "responses": {
@@ -409,7 +409,7 @@
         ]
       }
     },
-    "/tags": {
+    "/api/v1/tags": {
       "get": {
         "operationId": "Articles_GetTags",
         "responses": {

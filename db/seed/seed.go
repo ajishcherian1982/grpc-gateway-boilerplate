@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/raahii/golang-grpc-realworld-example/db"
+	"github.com/ajishcherian1982/grpc-gateway-boilerplate/db"
 )
 
 func main() {

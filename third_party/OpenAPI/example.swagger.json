@@ -19,7 +19,7 @@
     "application/json"
   ],
   "paths": {
-    "/api/v1/users": {
+    "/api/v1/exampleusers": {
       "get": {
         "summary": "List users",
         "description": "List all users on the server.",
@@ -31,13 +31,13 @@
               "type": "object",
               "properties": {
                 "result": {
-                  "$ref": "#/definitions/exampleUser"
+                  "$ref": "#/definitions/exampleExampleUser"
                 },
                 "error": {
                   "$ref": "#/definitions/rpcStatus"
                 }
               },
-              "title": "Stream result of exampleUser"
+              "title": "Stream result of exampleExampleUser"
             }
           },
           "default": {
@@ -59,7 +59,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/exampleUser"
+              "$ref": "#/definitions/exampleExampleUser"
             }
           },
           "default": {
@@ -89,7 +89,7 @@
     "exampleAddUserRequest": {
       "type": "object"
     },
-    "exampleUser": {
+    "exampleExampleUser": {
       "type": "object",
       "properties": {
         "id": {

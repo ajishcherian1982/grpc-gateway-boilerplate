@@ -12,7 +12,7 @@ import (
 // Backend implements the protobuf interface
 type Backend struct {
 	mu    *sync.RWMutex
-	users []*pbExample.User
+	users []*pbExample.ExampleUser
 }
 
 // New initializes a new Backend struct.
@@ -23,11 +23,11 @@ func New() *Backend {
 }
 
 // AddUser adds a user to the in-memory store.
-func (b *Backend) AddUser(ctx context.Context, _ *pbExample.AddUserRequest) (*pbExample.User, error) {
+func (b *Backend) AddUser(ctx context.Context, _ *pbExample.AddUserRequest) (*pbExample.ExampleUser, error) {
 	b.mu.Lock()
 	defer b.mu.Unlock()
 
-	user := &pbExample.User{
+	user := &pbExample.ExampleUser{
 		Id: uuid.Must(uuid.NewV4()).String(),
 	}
 	b.users = append(b.users, user)

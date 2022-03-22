@@ -25,45 +25,45 @@ message Profile {
 service Users {
   rpc LoginUser (LoginUserRequest) returns (UserResponse) {
     option (google.api.http) = {
-      post: "/users/login"
+      post: "/api/v1/users/login"
       body: "*"
     };
   }
 
   rpc CreateUser (CreateUserRequest) returns (UserResponse) {
     option (google.api.http) = {
-      post: "/users"
+      post: "/api/v1/users"
       body: "*"
     };
   }
 
   rpc CurrentUser (empty.Empty) returns (UserResponse) {
     option (google.api.http) = {
-      get: "/user"
+      get: "/api/v1/user"
     };
   }
 
   rpc UpdateUser (UpdateUserRequest) returns (UserResponse) {
     option (google.api.http) = {
-      put: "/user"
+      put: "/api/v1/user"
       body: "*"
     };
   }
 
   rpc ShowProfile (ShowProfileRequest) returns (ProfileResponse) {
     option (google.api.http) = {
-      get: "/profiles/{username}"
+      get: "/api/v1/profiles/{username}"
     };
   }
   rpc FollowUser (FollowRequest) returns (ProfileResponse) {
     option (google.api.http) = {
-      post: "/profiles/{username}/follow"
+      post: "/api/v2/profiles/{username}/follow"
       body: "*"
     };
   }
   rpc UnfollowUser (UnfollowRequest) returns (ProfileResponse) {
     option (google.api.http) = {
-      delete: "/profiles/{username}/follow"
+      delete: "/api/v1/profiles/{username}/follow"
     };
   }
 }

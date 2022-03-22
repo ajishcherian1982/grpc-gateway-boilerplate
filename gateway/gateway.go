@@ -57,13 +57,13 @@ func Run(dialAddr string) error {
 		return fmt.Errorf("failed to register gateway: %w", err)
 	}
 	// users
-	err := pbExample.RegisterUsersHandlerFromEndpoint(ctx, mux, *echoEndpoint, opts)
+	err = pbExample.RegisterUsersHandler(context.Background(), gwmux, conn)
 	if err != nil {
 		return err
 	}
 
 	// ariticles
-	err = pbExample.RegisterArticlesHandlerFromEndpoint(ctx, mux, *echoEndpoint, opts)
+	err = pbExample.RegisterArticlesHandler(context.Background(), gwmux, conn)
 	if err != nil {
 		return err
 	}

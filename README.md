@@ -1,7 +1,10 @@
-# grpc-gateway-boilerplate -- This is forked from johanbrandhorst/grpc-gateway-boilerplate
-and is being used for testing purposes
+# Grpc gateway example
 
-[![Run on Google Cloud](https://storage.googleapis.com/cloudrun/button.svg)](https://console.cloud.google.com/cloudshell/editor?shellonly=true&cloudshell_image=gcr.io/cloudrun/button&cloudshell_git_repo=https://github.com/ajishcherian1982/grpc-gateway-boilerplate.git)
+This has multiple proto files combined into a single project
+
+This is forked from johanbrandhorst/grpc-gateway-boilerplate
+and combined with code from https://github.com/raahii/golang-grpc-realworld-example
+and is being used for testing purposes
 
 All the boilerplate you need to get started with writing grpc-gateway powered
 REST services in Go.
@@ -12,6 +15,7 @@ Go 1.16+
 
 ## Running
 
+Run make generate to generate the files
 Running `main.go` starts a web server on https://0.0.0.0:11000/. You can configure
 the port used with the `$PORT` environment variable, and to serve on HTTP set
 `$SERVE_HTTP=true`.
