@@ -36,12 +36,14 @@ Go 1.16+
 ## Running
 
 Run make generate to generate the files
-Running `main.go` starts a web server on https://0.0.0.0:11000/. You can configure
+
+Running `main.go` starts a web server on https://0.0.0.0:11000/.
+
+You can configure
 the port used with the `$PORT` environment variable, and to serve on HTTP set
 `$SERVE_HTTP=true`.
 
 Run the below command if you modify the code
-
 make generate
 
 ```
