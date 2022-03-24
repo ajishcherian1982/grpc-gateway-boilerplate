@@ -13,13 +13,20 @@ Once the server is started by running go run main.go
 The apis are listed as mentioned in the .proto files
 
 /api/v1/users -- This talks to Mysql DB
+
 /api/v1/articles -- This talks to Mysql DB
+
 /api/v1/profiles -- This talks to Mysql DB
+
 /api/v/exampleusers -- This talks to In Memory DB
 
+
 P.S I am still in the learning phase and dont have enough knowledge to clean the codebase to use a single consistent logging
+
 Also even though all the swaggers/open api docs are generated in the third_party folder, i couldnt find a way to combine all these into a single documentation
+
 I havent setup a dependency management ,so in case new modules are added , you still have to run go get commands. So that is a pending item to be done here
+
 Thanks to both Authors in taking so much pain to bring a realistic project in place.
 
 ## Requirements
@@ -29,12 +36,14 @@ Go 1.16+
 ## Running
 
 Run make generate to generate the files
-Running `main.go` starts a web server on https://0.0.0.0:11000/. You can configure
+
+Running `main.go` starts a web server on https://0.0.0.0:11000/.
+
+You can configure
 the port used with the `$PORT` environment variable, and to serve on HTTP set
 `$SERVE_HTTP=true`.
 
 Run the below command if you modify the code
-
 make generate
 
 ```
