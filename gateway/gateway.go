@@ -1,7 +1,6 @@
 package gateway
 
 import (
-	"context"
 	"crypto/tls"
 	"fmt"
 	"io/fs"
@@ -12,12 +11,9 @@ import (
 	"strings"
 
 	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
-	"google.golang.org/grpc"
-	"google.golang.org/grpc/credentials"
 	"google.golang.org/grpc/grpclog"
 
 	"github.com/ajishcherian1982/grpc-gateway-boilerplate/insecure"
-	pbExample "github.com/ajishcherian1982/grpc-gateway-boilerplate/proto"
 	"github.com/ajishcherian1982/grpc-gateway-boilerplate/third_party"
 )
 
@@ -41,7 +37,7 @@ func Run(dialAddr string) error {
 
 	// Create a client connection to the gRPC Server we just started.
 	// This is where the gRPC-Gateway proxies the requests.
-	conn, err := grpc.DialContext(
+	/*conn, err := grpc.DialContext(
 		context.Background(),
 		dialAddr,
 		grpc.WithTransportCredentials(credentials.NewClientTLSFromCert(insecure.CertPool, "")),
@@ -49,10 +45,10 @@ func Run(dialAddr string) error {
 	)
 	if err != nil {
 		return fmt.Errorf("failed to dial server: %w", err)
-	}
+	}*/
 
 	gwmux := runtime.NewServeMux()
-	err = pbExample.RegisterUserServiceHandler(context.Background(), gwmux, conn)
+	/*err = pbExample.RegisterUserServiceHandler(context.Background(), gwmux, conn)
 	if err != nil {
 		return fmt.Errorf("failed to register gateway: %w", err)
 	}
@@ -67,7 +63,12 @@ func Run(dialAddr string) error {
 	if err != nil {
 		return err
 	}
+	*/
 
+	err := pbExample.Register(ctx, mux, *echoEndpoint, opts)
+	if err != nil {
+		return err
+	}
 	oa := getOpenAPIHandler()
 
 	port := os.Getenv("PORT")

@@ -42,5 +42,11 @@ message HelloResponse {
 
 // 4. service, unary request/response
 service GreetingService {
-    rpc greeting(HelloRequest) returns (HelloResponse);
+    rpc greeting(HelloRequest) returns (HelloResponse){
+        option (google.api.http) = {
+            // Route to this method from POST requests to /api/v1/exampleusers
+            post: "/api/v1/greeting"
+            body: "*"
+          };
+    }
 }

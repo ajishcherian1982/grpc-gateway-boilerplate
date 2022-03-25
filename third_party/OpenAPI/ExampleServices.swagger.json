@@ -15,8 +15,68 @@
   "produces": [
     "application/json"
   ],
-  "paths": {},
+  "paths": {
+    "/api/v1/greeting": {
+      "post": {
+        "operationId": "GreetingService_greeting",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/grpcHelloResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/grpcHelloRequest"
+            }
+          }
+        ],
+        "tags": [
+          "GreetingService"
+        ]
+      }
+    }
+  },
   "definitions": {
+    "grpcHelloRequest": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "age": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "hobbies": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "bagOfTricks": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "sentiment": {
+          "$ref": "#/definitions/grpcSentiment"
+        }
+      }
+    },
     "grpcHelloResponse": {
       "type": "object",
       "properties": {
