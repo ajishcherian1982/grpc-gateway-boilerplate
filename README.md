@@ -6,24 +6,7 @@ This is forked from johanbrandhorst/grpc-gateway-boilerplate
 and combined with code from https://github.com/raahii/golang-grpc-realworld-example
 and is being used for testing purposes
 
-All the boilerplate you need to get started with writing grpc-gateway powered
-REST services in Go.
-
-Once the server is started by running go run main.go
-The apis are listed as mentioned in the .proto files
-
-/api/v1/users -- This talks to Mysql DB
-
-/api/v1/articles -- This talks to Mysql DB
-
-/api/v1/profiles -- This talks to Mysql DB
-
-/api/v/exampleusers -- This talks to In Memory DB
-
-
-P.S I am still in the learning phase and dont have enough knowledge to clean the codebase to use a single consistent logging
-
-Also even though all the swaggers/open api docs are generated in the third_party folder, i couldnt find a way to combine all these into a single documentation
+## This is an example where the gateway connects to a remote grpc server
 
 I havent setup a dependency management ,so in case new modules are added , you still have to run go get commands. So that is a pending item to be done here
 
