@@ -2,15 +2,11 @@ package main
 
 import (
 	"io/ioutil"
-	"net"
 	"os"
 
-	"google.golang.org/grpc"
-	"google.golang.org/grpc/credentials"
 	"google.golang.org/grpc/grpclog"
 
 	"github.com/ajishcherian1982/grpc-gateway-boilerplate/gateway"
-	"github.com/ajishcherian1982/grpc-gateway-boilerplate/insecure"
 )
 
 func main() {
@@ -21,15 +17,17 @@ func main() {
 	grpclog.SetLoggerV2(log)
 
 	addr := "0.0.0.0:10000"
-	lis, err := net.Listen("tcp", addr)
+	/*lis, err := net.Listen("tcp", addr)
 	if err != nil {
 		log.Fatalln("Failed to listen:", err)
 	}
+
 
 	s := grpc.NewServer(
 		// TODO: Replace with your own certificate!
 		grpc.Creds(credentials.NewServerTLSFromCert(&insecure.Cert)),
 	)
+	*/
 	/*pbExample.RegisterUserServiceServer(s, server.New())
 
 	d, err := db.New()
@@ -52,10 +50,10 @@ func main() {
 	pbExample.RegisterArticlesServer(s, h)*/
 	// Serve gRPC Server
 	log.Info("Serving gRPC on https://", addr)
-	go func() {
+	/*go func() {
 		log.Fatal(s.Serve(lis))
-	}()
+	}()*/
 
-	err = gateway.Run("dns:///" + addr)
+	err := gateway.Run("dns:///" + addr)
 	log.Fatalln(err)
 }

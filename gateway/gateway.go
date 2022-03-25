@@ -1,7 +1,9 @@
 package gateway
 
 import (
+	"context"
 	"crypto/tls"
+	"flag"
 	"fmt"
 	"io/fs"
 	"io/ioutil"
@@ -11,10 +13,16 @@ import (
 	"strings"
 
 	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
+	"google.golang.org/grpc"
 	"google.golang.org/grpc/grpclog"
 
 	"github.com/ajishcherian1982/grpc-gateway-boilerplate/insecure"
+	pbExample "github.com/ajishcherian1982/grpc-gateway-boilerplate/proto"
 	"github.com/ajishcherian1982/grpc-gateway-boilerplate/third_party"
+)
+
+var (
+	echoEndpoint = flag.String("endpoint", "localhost:8080", "endpoint of YourService")
 )
 
 // getOpenAPIHandler serves an OpenAPI UI.
@@ -48,6 +56,7 @@ func Run(dialAddr string) error {
 	}*/
 
 	gwmux := runtime.NewServeMux()
+	opts := []grpc.DialOption{grpc.WithInsecure()}
 	/*err = pbExample.RegisterUserServiceHandler(context.Background(), gwmux, conn)
 	if err != nil {
 		return fmt.Errorf("failed to register gateway: %w", err)
@@ -65,7 +74,7 @@ func Run(dialAddr string) error {
 	}
 	*/
 
-	err := pbExample.Register(ctx, mux, *echoEndpoint, opts)
+	err := pbExample.RegisterGreetingServiceHandlerFromEndpoint(context.Background(), gwmux, *echoEndpoint, opts)
 	if err != nil {
 		return err
 	}
